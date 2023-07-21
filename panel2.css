@@ -1,0 +1,219 @@
+
+        #header{
+    display: flex;
+    margin-top: auto;
+    align-items: center;
+    justify-content: space-between;
+    background: #bec1c1;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    position: sticky;
+    
+}
+#header .logo {
+    max-width: 100%;
+    height: auto;
+    width: 90px; /* Adjust this value to your desired width for desktop screens */
+    opacity: 0.7;
+    padding: 0;
+  }
+
+
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+   
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active{
+    color: hsl(212, 86%, 31%);
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: hsl(212, 86%, 31%);
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+        /* Custom CSS for the select element */
+        select {
+            height: 40px; /* Set the height of the select element */
+            font-size: 16px; /* Set the font size of the options */
+        }
+        input {
+            height: 35px;
+            width: 70px; /* Set the height of the select element */
+            font-size: 16px; /* Set the font size of the options */
+        }
+
+        /* Styling for the <textarea> element */
+textarea[name='prescriptions'] {
+    height: 20px; /* Set the height of the textarea */
+    width: 100px; /* Set the width of the textarea */
+    font-size: 16px; /* Set the font size of the textarea text */
+    padding: 5%; /* Add some padding around the textarea text */
+    border: 1px solid #ccc; /* Add a 1px solid border */
+    border-radius: 4px; /* Add some border-radius for a slightly rounded appearance */
+    resize: vertical;
+    margin-top: 2%; /* Allow the textarea to be resized vertically */
+  }
+  
+  /* Optional: If you want to style the placeholder text */
+  textarea[name='prescriptions']::placeholder {
+    color: #aaa; /* Set the color of the placeholder text */
+  }
+  
+
+        
+
+        #form1 button {
+            background-color: #791597;
+            color: #fff;
+            margin-top: 1%;
+            padding: 9px 10px 9px 10px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+            white-space: nowrap;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #form1 button:hover {
+            background-color: #088178;
+            color: #fff;
+        }
+
+        .spaced-words {
+  word-spacing: 70px; /* Adjust the value as per your desired space */
+}
+
+#search-bar {
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+#search-bar input {
+    height: 35px;
+    width: 250px;
+    padding: 5px;
+    justify-content: center;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 65%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#search-bar button {
+    background-color: #791597;
+    color: #fff;
+    padding: 9px 15px;
+    margin-left: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    border: none;
+    border-radius: 5px ;
+}
+
+#search-bar button:hover {
+    background-color: #088178;
+}
+h5 {
+            margin-left: 43%;
+            font-size: 20px;
+        }
+
+        #search {
+            display: flex;
+            flex-direction: column; /* Display the elements in a column */
+            align-items: center; /* Center items horizontally */
+            margin-top: 20px; /* Add some margin between h5 and search */
+        }
+
+        #search label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-right: 10px;
+        }
+
+        #search input[type="text"] {
+            height: 30px;
+            width: 150px;
+            font-size: 16px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Add flex properties to the search-bar div */
+        #search-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        /* Adjust margins to create space between input fields */
+        #search-bar input {
+            margin-right: 5px;
+        }
+
+        #search-bar button {
+            background-color: #791597;
+            color: #fff;
+            padding: 9px 15px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #search-bar button:hover {
+            background-color: #088178;
+        }
+
+        
+        button {
+            background-color: #791597;
+            color: #fff;
+            padding: 9px 15px;
+            margin-left: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px ;
+        }
+
+        button:hover {
+            background-color: #088178;
+        }
+    
