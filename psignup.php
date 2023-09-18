@@ -34,8 +34,30 @@
                 $stmt->bind_param("sssss", $fname, $lname, $email, $pnumber, $password);
 
                 if ($stmt->execute()) {
-                    echo "Registration successful";
-                    echo "<script>window.location.href = 'patientwelcome.html';</script>";
+                   // Registration successful, display a success message using JavaScript
+                    echo "<script>
+                        var successMessage = document.createElement('div');
+                        successMessage.textContent = 'Registration successful';
+                        successMessage.style.backgroundColor = '#4CAF50';
+                        successMessage.style.color = 'white';
+                        successMessage.style.padding = '10px';
+                        successMessage.style.textAlign = 'center';
+                        successMessage.style.position = 'fixed';
+                        successMessage.style.top = '50%';
+                        successMessage.style.left = '50%';
+                        successMessage.style.transform = 'translate(-50%, -50%)';
+                        document.body.appendChild(successMessage);
+
+                        // Hide the message after 1 second.
+                        setTimeout(function() {
+                            successMessage.style.display = 'none';
+                        }, 1000);
+
+                        // Redirect the user to the index page after registration
+                        setTimeout(function() {
+                            window.location.href = 'index.html';
+                        }, 1000);
+                    </script>";
                     exit(); // Stop further execution of the PHP code
                 } else {
                     echo "Error: " . $stmt->error;
