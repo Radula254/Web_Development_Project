@@ -1,0 +1,56 @@
+
+#textarea {
+    padding-top: 30px;
+    padding-left: auto; /* Remove the specific left padding */
+    padding-right: auto; /* Remove the specific right padding */
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    overflow: auto; /* Add scrollbars when the content overflows */
+  }
+  
+  
+
+.area{
+    background-color: aliceblue;
+    border: 5px solid;
+    padding-top: 30px;
+    padding-left: 50px;
+    height: 400px;
+    width: 500px;
+    box-shadow: 3px 3px 5px;
+    overflow: auto;
+}
+
+.area button{
+    background-image: url("button.png");
+    background-color: transparent;
+    color: #080101;
+    border: 0;
+    padding: 14px 80px 14px 65px;
+    background-repeat: no-repeat;
+    border-width: 3px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+#img_div{
+    width: 80%;
+    padding: 5px;
+    margin: 15px;
+    
+}
+#img_div:after{
+    content:"";
+    clear:both;
+    display: block;
+}
+img{
+    float: left;
+    margin: 5px;
+    width: 300px;
+    height: 140px;
+}
+

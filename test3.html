@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEase Admin Panel</title>
+    <link rel="icon" type="image/jpg" href="logo6.jpg">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="admin4.css">
+    <link rel="stylesheet" href="index.csss">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="http://localhost/Medease/logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container">
+        <aside class="side-menu">
+            <div class="brand-name">
+                <h1>Admin Panel</h1>
+            </div>
+            <ul class="role-list">
+                <li><a href="http://localhost/Medease/admincrud.php"><i class="fas fa-user-circle"></i> Admins</a></li>
+                <li><a href="http://localhost/Medease/dmadmin.php"><i class="fas fa-user-tie"></i> Managers</a></li>
+                <li><a href="http://localhost/Medease/dadmin.php"><i class="fas fa-user-md"></i> Doctors</a></li>
+                <li><a href="http://localhost/Medease/nadmin.php"><i class="fas fa-user-nurse"></i> Nurses</a></li>
+                <li><a href="http://localhost/Medease/radmin.php"><i class="fas fa-user-check"></i> Receptionists</a></li>
+                <li><a href="http://localhost/Medease/phadmin.php"><i class="fas fa-user-md"></i> Pharmacists</a></li>
+            </ul>
+        </aside>
+
+        <section class="content">
+            <h2>Data Display</h2>
+            <div class="data-section" id="data-section">
+                <!-- Template for data-card -->
+                <template id="data-card-template">
+                    <div class="data-card">
+                        <a href="#">
+                            <img src="feature3.png" alt="Manager">
+                            <h3>Managers</h3>
+                        </a>
+                    </div>
+                </template>
+            </div>
+            <button id="duplicateCard">Create</button>
+            
+            <script>
+                // Function to add a new cloned card and store it in the database
+                function addClonedCard() {
+                    const template = document.getElementById('data-card-template');
+                    const clonedCard = document.importNode(template.content, true);
+
+                    // Prompt the user to input image source URL and text for the h3 tag
+                    const imageUrl = prompt('Enter the image source URL:');
+                    const cardText = prompt('Enter the text for the h3 tag:');
+
+                    if (imageUrl && cardText) {
+                        const img = clonedCard.querySelector('img');
+                        img.setAttribute('src', imageUrl);
+
+                        const heading = clonedCard.querySelector('h3');
+                        heading.textContent = cardText;
+
+                        // Send the data to the server using a POST request
+                        fetch('store_card.php', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ imageUrl, cardText }),
+                        })
+                            .then((response) => response.json())
+                            .then((data) => {
+                                if (data.message) {
+                                    // Data successfully stored in the database
+                                    alert(data.message);
+                                } else if (data.error) {
+                                    // Error occurred during storage
+                                    alert(data.error);
+                                }
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            });
+
+                        // Append the cloned card to the data-section
+                        const dataSection = document.getElementById('data-section');
+                        dataSection.appendChild(clonedCard);
+                    }
+                }
+
+                // Add an event listener to the "Create" button
+                const createButton = document.getElementById('duplicateCard');
+                createButton.addEventListener('click', addClonedCard);
+            </script> 
+        </section>
+    </section>
+</body>
+</html>

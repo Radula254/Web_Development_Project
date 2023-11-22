@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="icon" type="image/jpg" href="logo6.jpg">
+    <link rel="stylesheet" href="details.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+    <title>MedEase</title>
+    
+</head>
+<body>
+    <div class="title">
+        <h1>MedEase</h1>
+    </div>
+    <div class="form1">
+        <form action="ddetails.php" method="post" enctype="multipart/form-data">
+            <h1>Include Drug Name & Drug Details</h1>
+            <input type="hidden" name="size" value="1000000">
+            <input type="file" name="image"><br>
+
+            <label for="drugName">Drug Name:</label><br>
+            <input type="text" name="drugName" required><br>
+    
+            <label for="drugDetails">Drug Details:</label><br>
+            <textarea name="drugDetails" required style="width: 85%; padding: 30px; font-size: 18px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;"></textarea><br>
+    
+            <input type="submit" name="upload" value="upload image">
+            
+            
+        </form>
+        <button onclick="goback()" class="normal"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>Return</button>
+
+            <script>
+                function goback(){
+                    window.history.back();
+                }
+            </script>
+    </div>
+</body>
+</html>

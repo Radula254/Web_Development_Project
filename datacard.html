@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="drug.css">
+    <title>Document</title>
+</head>
+<body>
+    <section id="products1" class="section-p1">
+        <h2>Drugs In Dispensary</h2>
+        <button onclick="goback()" class="normal"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>Return</button>
+
+        <button id="addDataCard">Add Data Card</button>
+
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='view_details.php?id=1';">
+                <img src="upload111.jpg" alt="">
+                <div class="des">
+                    <span>Acetaminophen</span>
+                    <h5>Paracetamol</h5>
+                    <h4>Pain Reliever</h4>
+                </div>
+            </div>
+            <!-- Repeat similar blocks for other products -->
+        </div>
+    </section>
+    
+    <script>
+        function goback() {
+            window.history.back();
+        }
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            const addDataCardButton = document.getElementById('addDataCard');
+            const proContainer = document.querySelector('.pro-container');
+
+            addDataCardButton.addEventListener('click', function () {
+                const newProduct = document.querySelector('.pro').cloneNode(true);
+                proContainer.appendChild(newProduct);
+            });
+        });
+    </script>
+</body>
+</html>
