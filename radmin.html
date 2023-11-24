@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEase</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <h1>MedEase Administrator</h1>
+
+    <div class="container">
+        <div class="form-section">
+            <h2>Add Receptionist:</h2>
+            <form action="" method="POST">
+                <label for="fname">First Name:</label><br>
+                <input type="text" name="fname" id="fname" required><br>
+                <label for="lname">Last Name:</label><br>
+                <input type="text" name="lname" id="lname" required><br>    
+                <label for="DOE">Date:</label><br>
+                <input type="date" name="DOE" id="DOE" required><br>
+                <label for="department">Department:</label><br>
+                <input type="text" name="department" id="department" required><br>
+                <label for="receptionist">Doctor:</label><br>
+                <input type="text" name="receptionist" id="receptionist" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" required><br>
+                <label for="pnumber">Phone Number:</label><br>
+                <input type="number" name="pnumber" id="pnumber" required><br>
+                <label for="password">Password:</label><br>
+                <input type="password" name="password" id="password" required><br>
+                <br>
+                <input type="submit" name="add" value="Add Receptionist">
+            </form>
+        </div>
+
+        <div class="form-section">
+            <h2>Edit Receptionist:</h2>
+            <form action="" method="POST">
+                <label for="id">Receptionist ID:</label><br>
+                <input type="text" name="id" id="id" required><br>
+                <label for="fname">First Name:</label><br>
+                <input type="text" name="fname" id="fname" required><br>
+                <label for="lname">Last Name:</label><br>
+                <input type="text" name="lname" id="lname" required><br>
+                <label for="department">Department:</label><br>
+                <input type="text" name="department" id="department" ><br>
+                <label for="receptionist">Doctor:</label><br>
+                <input type="text" name="receptionist" id="receptionist" ><br>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" ><br>
+                <label for="pnumber">Phone Number:</label><br>
+                <input type="number" name="pnumber" id="pnumber" ><br>
+                <label for="password">Password:</label><br>
+                <input type="password" name="password" id="password" ><br>
+                <br>
+                <input type="submit" name="edit" value="Edit Receptionist">
+            </form>
+        </div>
+
+        <div class="form-section">
+            <h2>Delete Receptionist:</h2>
+            <form action="" method="POST">
+                <label for="id">Receptionist ID:</label><br>
+                <input type="text" name="id" id="id" required><br>
+                <label for="fname">First Name:</label><br>
+                <input type="text" name="fname" id="fname" required><br>
+                <label for="lname">Last Name:</label><br>
+                <input type="text" name="lname" id="lname" required><br>
+                <br>
+                <input type="submit" name="delete" value="Delete Receptionist">
+            </form>
+        </div>
+        
+        <div class="form-section">
+            <h2>Search Receptionist:</h2>
+            <form action="" method="POST">
+                <label for="id">ID</label><br>
+                <input type="number" name="id" id="id"><br>
+                <label for="fname">First Name:</label><br>
+                <input type="text" name="fname" id="fname" ><br>
+                <label for="lname">Last Name:</label><br>
+                <input type="text" name="lname" id="lname" ><br>
+                <label for="DOE">Date of Employment:</label><br>
+                <input type="date" name="DOE" id="DOE" value="<?php echo isset($receptionist) ? $receptionist['DOE'] : ''; ?>"><br>
+                <label for="department">Department:</label><br>
+                <input type="text" name="department" id="department" value="<?php echo isset($receptionist) ? $receptionist['department'] : ''; ?>"><br>
+                <label for="doctor">Doctor:</label><br>
+                <input type="text" name="doctor" id="doctor" value="<?php echo isset($receptionist) ? $receptionist['doctor'] : ''; ?>"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" value="<?php echo isset($receptionist) ? $receptionist['email'] : ''; ?>"><br>
+                <label for="pnumber">Phone Number:</label><br>
+                <input type="number" name="pnumber" id="pnumber" value="<?php echo isset($receptionist) ? $receptionist['pnumber'] : ''; ?>"><br>
+                <br>
+                <input type="submit" name="search" value="Search Receptionist">
+            </form>
+        </div>
+</div>
+<div id = "content-div">
+</div>
+    <script>
+        fetch('http://127.0.0.1:3000/receptionists')
+        .then(response => response.json())
+        .then(data => {
+            container = document.getElementById("content-div");
+            data.forEach(receptionist => {
+                item = document.createElement('div');
+                item.innerHTML = `${receptionist.id} ${receptionist.fname} ${receptionist.lname} ${receptionist.DOE} ${receptionist.department} ${receptionist.email}  ${receptionist.pnumber}`;
+                container.appendChild(item);
+            });
+            // Example for testing purposes
+            console.log(data[0]);
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
+    </script>
+</body>
+</html>

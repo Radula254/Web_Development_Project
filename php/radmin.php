@@ -255,6 +255,6 @@ if (isset($_POST['search'])) {
                 <input type="submit" name="search" value="Search Receptionist">
             </form>
         </div>
-    </div>
+</div>
 </body>
 </html>

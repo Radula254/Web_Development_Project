@@ -19,15 +19,15 @@
         <form action="ddetails.php" method="post" enctype="multipart/form-data">
             <h1>Include Drug Name & Drug Details</h1>
             <input type="hidden" name="size" value="1000000">
-            <input type="file" name="image"><br>
+            <input type="file" id="image" name="image"><br>
 
             <label for="drugName">Drug Name:</label><br>
-            <input type="text" name="drugName" required><br>
+            <input type="text" name="drugName" id="drugName" required><br>
     
             <label for="drugDetails">Drug Details:</label><br>
-            <textarea name="drugDetails" required style="width: 85%; padding: 30px; font-size: 18px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;"></textarea><br>
+            <textarea name="drugDetails" id="drugDetails" required style="width: 85%; padding: 30px; font-size: 18px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;"></textarea><br>
     
-            <input type="submit" name="upload" value="upload image">
+            <input type="submit" name="upload" id="upload" value="upload image">
             
             
         </form>
