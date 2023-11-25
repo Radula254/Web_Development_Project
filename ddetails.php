@@ -4,7 +4,7 @@ if (isset($_POST['upload'])) {
     $target = "images/".basename($_FILES['image']['name']);
 
     //connect to the database
-    $db = mysqli_connect("localhost", "root" , "" , "medease");
+    $db = mysqli_connect("localhost", "root" , "" , "");
 
     //Get all the submitted data from the form
     $image = $_FILES['image']['name'];

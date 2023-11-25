@@ -14,17 +14,17 @@
         <h1>MedEase</h1>
     </div>
     <div class="form1">
-        <form id="drug-form" >
+        <form id="drug-form"  >
         
             <h1>Include Drug Name & Drug Details</h1>
             <input type="hidden" name="size" value="1000000">
-            <input type="file" id="image" name="image"><br>
+            <input type="file" id="image" name="image" required><br>
 
             <label for="drugName">Drug Name:</label><br>
-            <input type="text" name="drugName" id="drugName" required><br>
+            <input type="text" name="drugname" id="drugname" required><br>
 
             <label for="drugDetails">Drug Details:</label><br>
-            <textarea name="drugDetails" id="drugDetails" required style="width: 85%; padding: 30px; font-size: 18px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;"></textarea><br>
+            <textarea name="drugdetails" id="drugdetails" required style="width: 85%; padding: 30px; font-size: 18px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;"></textarea><br>
 
            
             <button type="submit" onclick="adddrugs()">Add Drugs</button>
@@ -43,7 +43,7 @@
             drugs[key] = value;
         });
 
-        fetch('http://127.0.0.1:3000/drugdetails', {
+        fetch('http://127.0.0.1:3000/drugdetail', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
